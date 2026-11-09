@@ -16,3 +16,17 @@
 - 👤 [Explore the creator's projects](https://go.ondev.store/vitorbandieira78-ui).
 - 🌍 [Create with OMGithub](https://go.ondev.store/).
 <!-- omgithub:readme:end -->
+
+## Emberfall: The Runeblade
+
+A small 3D fantasy action RPG set in a haunted forest. Defeat the three Mossbound Wardens, gather floating wild runes, and use your enchanted sword and arcane burst to survive.
+
+### Play
+
+Open `index.html` in a modern browser with an internet connection (Three.js is loaded from jsDelivr).
+
+- **WASD / arrow keys** — move
+- **Space** — sword slash
+- **Q** — arcane burst (costs 20 arcane)
+- **Touchscreens** — use the movement stick and Slash/Magic buttons
+
