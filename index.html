@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101611" />
+  <title>Emberfall — The Hollowwood</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Marcellus&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Emberfall home"><span class="brand-mark">✦</span><span>EMBERFALL</span><small>THE HOLLOWWOOD</small></a>
+      <div class="region-pill"><i></i> THE SUNDERED GROVE <span>·</span> DAY 03</div>
+      <button class="icon-btn" id="sound-toggle" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="hero-hud" aria-label="Player status">
+      <div class="avatar">✦<span class="level">08</span></div>
+      <div class="player-meta"><div class="player-name">WANDERER <span>LVL 08</span></div>
+        <div class="meter health"><div id="health-fill"></div><b>VITALITY</b><span id="health-text">100 / 100</span></div>
+        <div class="meter mana"><div id="mana-fill"></div><b>FOCUS</b><span id="mana-text">60 / 60</span></div>
+        <div class="xp-track"><div id="xp-fill"></div></div>
+      </div>
+    </section>
+    <section class="quest-card">
+      <div class="eyebrow"><span class="quest-spark">✦</span> CURRENT TALE</div>
+      <h1>A Thorn in the Dark</h1>
+      <p>Cleanse the grove of its blight.</p>
+      <div class="objective"><span class="objective-icon">◈</span><span id="objective-text">Defeat the Hollowfangs</span><b id="kill-count">0 / 5</b></div>
+    </section>
+    <div class="zone-label"><span class="zone-line"></span><div><b>THE SUNDERED GROVE</b><small>ANCIENT WOODLAND · DANGER: MODERATE</small></div><span class="zone-line"></span></div>
+    <div class="toast" id="toast"></div>
+    <div class="crosshair" id="crosshair"><i></i><i></i></div>
+    <section class="bottom-ui">
+      <div class="controls-hint"><span class="key">W A S D</span> MOVE <span class="hint-divider">·</span><span class="key">SPACE</span> SWORD <span class="hint-divider">·</span><span class="key">Q</span> ARCANE BURST <span class="hint-divider">·</span><span class="key">SHIFT</span> ROLL</div>
+      <div class="hotbar">
+        <button class="skill-slot active" id="sword-btn" aria-label="Sword attack"><span class="slot-key">LMB</span><span class="skill-icon sword-icon">⚔</span><b>EMBERBLADE</b><small>SWING</small></button>
+        <button class="skill-slot" id="spell-btn" aria-label="Arcane burst"><span class="slot-key">Q</span><span class="skill-icon spell-icon">✧</span><b>ARCANE</b><small id="spell-caption">BURST · 12 FOCUS</small><span class="cooldown" id="spell-cooldown"></span></button>
+        <button class="skill-slot" id="roll-btn" aria-label="Dodge roll"><span class="slot-key">SHIFT</span><span class="skill-icon roll-icon">➤</span><b>PHASE STEP</b><small id="roll-caption">DODGE</small><span class="cooldown" id="roll-cooldown"></span></button>
+        <div class="potion-slot"><span class="slot-key">E</span><span class="potion-icon">♜</span><b>TONIC</b><small id="potion-count">2 LEFT</small></div>
+      </div>
+      <div class="mini-status"><span class="online-dot"></span> GROVE INSTANCE <b id="enemy-count">0 THREATS</b><span class="mini-divider"></span><span>◷ <b id="clock">00:00</b></span></div>
+    </section>
+    <div class="mobile-controls" aria-label="Touch controls">
+      <div class="joystick" id="joystick"><div class="joy-knob" id="joy-knob"></div></div>
+      <div class="mobile-actions"><button id="mobile-roll">↗</button><button id="mobile-spell">✧</button><button id="mobile-attack">⚔</button></div>
+    </div>
+    <div class="start-screen" id="start-screen">
+      <div class="start-panel"><div class="start-emblem">✦</div><div class="eyebrow">A WANDERER'S TALE</div><h2>Into the<br><em>Hollowwood</em></h2><p>The old forest remembers every wound.<br>Its blight remembers you.</p><button id="begin-btn">ENTER THE GROVE <span>→</span></button><div class="start-foot">WASD TO MOVE <i>·</i> SPACE TO STRIKE</div></div>
+    </div>
+    <div class="death-screen" id="death-screen"><div class="death-mark">✦</div><div class="eyebrow">THE WOOD CLAIMS ITS DUE</div><h2>Fallen, <em>not finished.</em></h2><p>The grove will be waiting.</p><button id="retry-btn">RISE AGAIN <span>↻</span></button></div>
+    <div class="victory-screen" id="victory-screen"><div class="death-mark">✧</div><div class="eyebrow">TALE COMPLETE</div><h2>The grove<br><em>breathes again.</em></h2><p>The Hollowfangs are no more. A new path opens.</p><button id="continue-btn">KEEP EXPLORING <span>→</span></button></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
